@@ -2,7 +2,7 @@ pipeline {
     agent none // Dış agent tanımı kullanmamak için none kullanıyoruz.
 
     environment {
-        DOCKER_IMAGE = 'y3ko/jenkins:test2'
+        DOCKER_IMAGE = 'y3ko/jenkins:test3'
     }
 
     stages {
