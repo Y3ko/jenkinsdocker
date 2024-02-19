@@ -41,7 +41,7 @@ spec:
                         // Docker imajını derle ve push et.
                         sh "docker build -t ${env.DOCKER_IMAGE} ."
                         withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
-                            sh "docker login --username $DOCKER_USERNAME -p $DOCKER_PASSWORD"
+                            sh "docker login --username $DOCKER_USERNAME --password-stdin"
                         }
                         sh "docker push ${env.DOCKER_IMAGE}"
                     }
