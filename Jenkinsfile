@@ -42,7 +42,7 @@ spec:
                         sh "docker build -t ${env.DOCKER_IMAGE} ."
                         // Docker Registry'ye giriş yap ve imajı push et.
                         withDockerRegistry([ credentialsId: "dockerhub", url: "" ]) {
-                            sh "docker push ${env.DOCKER_IMAGE}"
+                            dockerImage.push(${env.DOCKER_IMAGE})
                         }
                     }
                 }
