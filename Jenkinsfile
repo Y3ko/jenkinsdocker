@@ -39,10 +39,10 @@ spec:
                 container('docker') {
                     script {
                         // Docker imajını derle.
-                        sh "docker build -t ${env.DOCKER_IMAGE} ."
+                        dockerImage = docker.build(${env.DOCKER_IMAGE})
                         // Docker Registry'ye giriş yap ve imajı push et.
                         withDockerRegistry([ credentialsId: "dockerhub", url: "" ]) {
-                            dockerImage.push(${env.DOCKER_IMAGE})
+                        dockerImage.push(${env.DOCKER_IMAGE})
                         }
                     }
                 }
