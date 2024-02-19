@@ -39,10 +39,10 @@ spec:
                 container('docker') {
                     script {
                         // Docker imajını derle.
-                        dockerImage = docker.build(${env.DOCKER_IMAGE})
+                        dockerImage = docker.build("y3ko/jenkins:test3")
                         // Docker Registry'ye giriş yap ve imajı push et.
                         withDockerRegistry([ credentialsId: "dockerhub", url: "" ]) {
-                        dockerImage.push(${env.DOCKER_IMAGE})
+                        dockerImage.push()
                         }
                     }
                 }
